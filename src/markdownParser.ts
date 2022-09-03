@@ -165,7 +165,7 @@ export function writeCellsToMarkdown(cells: ReadonlyArray<NotebookCellData>): st
 			const codeSuffix = '\n' + '```';
 			result += codePrefix + contents + codeSuffix;
 			if (outputParsed !== '' && outputParsed !== '\n' && outputParsed.length > 0) {
-				result += '\n```output\n' + outputParsed;
+				result += '\n\n```output\n' + outputParsed;
 				if (outputParsed.slice(-1) !== '\n') {
 					result += '\n';
 				}
@@ -174,9 +174,9 @@ export function writeCellsToMarkdown(cells: ReadonlyArray<NotebookCellData>): st
 		} else {
 			// Puts in a full \n\n above every markdown cell in source code, which is
 			// interpreted in markdown as a single \n 
-			result += '\n' + cell.value;
+			result += cell.value;
 		}
-		result += '\n';
+		result += '\n\n';
 	}
 	return result;
 }
