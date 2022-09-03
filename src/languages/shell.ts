@@ -16,7 +16,7 @@ export const processShell = (cells: Cell[], language: string): ChildProcessWitho
 	}
 	let main = "";
 	for (const cell of cells) {
-		main += `#!/bin/${language}\necho '!!output-start-cell'\n`
+		main += `\n#!/bin/${language}\necho '!!output-start-cell'\n`
 		main += `cd ${dir}\n`
 		main += cell.contents;
 	}
